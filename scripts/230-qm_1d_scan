@@ -1,0 +1,31 @@
+#!/bin/sh
+source $GAAMPSCRIPTS/routines
+
+cp $GAAMPRUN/120-fit_esp/elem-list.txt .
+
+if [ "$NumTorsion" -eq 1 ]; then
+  cp $GAAMPRUN/210-detect_soft_torsion/mol.prm .
+  cp $GAAMPRUN/210-detect_soft_torsion/mol.xpsf .
+  cp $GAAMPRUN/210-detect_soft_torsion/mol-opt.crd .
+  cp $GAAMPRUN/210-detect_soft_torsion/soft-dih-list.txt .
+
+  Gexe qm-1d-scan-single_para
+
+else 
+  cp $GAAMPRUN/220-pes/mol.prm .
+  cp $GAAMPRUN/220-pes/mol.xpsf .
+  cp $GAAMPRUN/220-pes/mol-opt.crd .
+  cp $GAAMPRUN/220-pes/soft-dih-list-new.txt ./soft-dih-list.txt
+
+  if [ "$NumTorsion" -lt "$MaxTorsion" ]; then
+
+    Gexe qm-1d-scan-para 
+
+  else 
+
+    Gexe qm-1d-scan_large_para
+
+  fi
+fi
+
+exit 0

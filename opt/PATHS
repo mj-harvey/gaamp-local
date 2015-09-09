@@ -1,0 +1,6 @@
+#!/bin/sh
+GAUSS_EXEDIR="/homes/huanglei/prog/g09"
+AMBERDIR="/home/huanglei/tools/amber11"
+BABELDIR="/home/huanglei/tools/openbabel-install"
+MATCHDIR="/home/hrui/work/gaamp_server_tar/MATCH_RELEASE"
+
