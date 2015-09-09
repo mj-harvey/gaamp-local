@@ -1,0 +1,18 @@
+#!/bin/sh
+source $GAAMPSCRIPTS/routines
+cp ../240-1d-fitting/* .
+cp ../250-refitcharges/new-mol.xpsf ./mol.xpsf
+##  cp ../250-refitcharges/new-mol.xpsf ../22*-scan/mol.xpsf
+
+Gexe 1d-fitting
+
+rm -Rf saved-para.dat
+touch saved-para.dat
+
+IdxTor=1
+while [ -e torsion-para-${IdxTor}.dat ]; do
+  head -n 1 torsion-para-${IdxTor}.dat >> saved-para.dat
+  let IdxTor=IdxTor+1
+done
+
+exit 0

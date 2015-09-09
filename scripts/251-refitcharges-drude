@@ -1,0 +1,12 @@
+#!/bin/sh
+source $GAAMPSCRIPTS/routines
+
+  cp ../151-fit_water_drude/* .
+  cp ../241-1d-fitting_drude/soft-dih-list.txt .
+  cp ../241-1d-fitting_drude/saved-para.dat .
+  cp para-check.dat para-opt-start.dat
+
+  Gexe drude-fitcharge_again drude-fit-mol.conf 
+  Gexe drude-gen_xpsf drude-esp-mol.rtf drude-esp-wat-mol.xpsf MOL TEST
+
+exit 0

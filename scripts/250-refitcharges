@@ -1,0 +1,12 @@
+#!/bin/sh
+source $GAAMPSCRIPTS/routines
+
+  cp ../150-fit_water/* .
+  cp ../240-1d-fitting/soft-dih-list.txt .
+  cp ../240-1d-fitting/saved-para.dat .
+  cp para-check.dat para-opt-start.dat
+
+  Gexe fitcharge-again fit-mol.conf
+  Gexe update-xpsf
+
+exit 0

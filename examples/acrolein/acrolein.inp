@@ -1,0 +1,14 @@
+# This is a prototype of a input file for GAAMP
+# It will be read as a shell script  
+# Defaults values can be found in MyGAAMP/scripts/defaults
+##export GAUSS_SCRDIR=/home/eliotblg/tmp
+##rm -r $GAUSS_SCRDIR/*
+JobName=acrolein
+FileName=$JobName.mol2
+FileType=mol2
+To_Fit_E_Wat=1
+DrudeModel=1
+E14FAC=1.0
+NetCharge=0
+Ini_Parameters=Match
+
